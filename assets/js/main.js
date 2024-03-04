@@ -259,4 +259,50 @@
    */
   new PureCounter();
 
+  /**
+   * Logo banner scroll
+   */
+  const slider = document.getElementById('logo-banner');
+  let scrollAmount = 0;
+
+  function scrollLogos() {
+    // Increment the scroll position
+    slider.scrollLeft += 1;
+  
+    // Check if the first logo is completely out of view
+    let firstLogo = slider.querySelector('.logo-slide');
+    let firstLogoWidth = firstLogo.offsetWidth;
+  
+    if (slider.scrollLeft >= firstLogoWidth) {
+      // Move the first logo to the end
+      slider.appendChild(firstLogo);
+  
+      // Adjust scrollLeft to account for the removed first logo
+      slider.scrollLeft -= firstLogoWidth;
+    }
+  }
+  
+
+  setInterval(scrollLogos, 10); // Adjust the interval for speed control
+
 })()
+
+/**
+ * Dynamic loading of content for the portfolio section
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const myParam = urlParams.get('item');
+
+  if (myParam == "1") {
+    document.getElementById("portfolio-details-1").style.display = "block";
+    document.getElementById("portfolio-desc-1").style.display = "block";
+  } else if (myParam == "2") {
+    document.getElementById("portfolio-details-2").style.display = "block";
+    document.getElementById("portfolio-desc-2").style.display = "block";
+  } else if (myParam == "3") {
+    document.getElementById("portfolio-details-3").style.display = "block";
+    document.getElementById("portfolio-desc-3").style.display = "block";
+  }
+});

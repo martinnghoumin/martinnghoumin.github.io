@@ -67,6 +67,29 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# download button
+--------------------------------------------------------------*/
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0px 0px;
+  color: #050d18;
+  background: #149ddd; 
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold; 
+  transition: background-color 0.3s ease; 
+}
+
+.download-button:hover {
+  background: #272829;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease; 
+}
+
+/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
@@ -415,6 +438,14 @@ section {
   color: #122f57;
 }
 
+.facts .count-box .description {
+  padding: 8px 0 0 0;
+  margin: 0 0 0 60px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  color: #122f57;
+}
+
 .facts .count-box a {
   font-weight: 600;
   display: block;
@@ -429,8 +460,40 @@ section {
   color: #1f5297;
 }
 
+.facts .logo-slider {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.facts .logo-slide {
+  flex: 0 0 auto;
+  padding: 80px; /* Adjust as needed */
+}
+
+.facts .logo-container {
+  display: flex; /* Use flexbox to align children */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Align items vertically */
+  flex-wrap: wrap; /* Allow items to wrap if needed */
+}
+
+.facts .logo-slide img {
+  display: block;
+  margin: 0 auto;
+  transition: 0.3s;
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+}
+
+.facts .logo-slide img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -462,7 +525,7 @@ section {
 .skills .progress-bar {
   width: 1px;
   height: 10px;
-  transition: 0.9s;
+  transition: 1.5s;
   background-color: #149ddd;
 }
 
