@@ -304,5 +304,54 @@ document.addEventListener('DOMContentLoaded', function() {
   } else if (myParam == "3") {
     document.getElementById("portfolio-details-3").style.display = "block";
     document.getElementById("portfolio-desc-3").style.display = "block";
+  } else if (myParam == "4") {
+    document.getElementById("portfolio-details-4").style.display = "block";
+    document.getElementById("portfolio-desc-4").style.display = "block";
+  } else if (myParam == "5") {
+    document.getElementById("portfolio-details-5").style.display = "block";
+    document.getElementById("portfolio-desc-5").style.display = "block";
+  } else if (myParam == "6") {
+    document.getElementById("portfolio-details-6").style.display = "block";
+    document.getElementById("portfolio-desc-6").style.display = "block";
+  } else if (myParam == "7") {
+    document.getElementById("portfolio-details-7").style.display = "block";
+    document.getElementById("portfolio-desc-7").style.display = "block";
+  } else if (myParam == "8") {
+    document.getElementById("portfolio-details-8").style.display = "block";
+    document.getElementById("portfolio-desc-8").style.display = "block";
+  } else if (myParam == "9") {
+    document.getElementById("portfolio-details-9").style.display = "block";
+    document.getElementById("portfolio-desc-9").style.display = "block";
   }
+});
+
+/**
+ * Email form submission
+ */
+
+
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+
+  fetch('process.php', {
+      method: 'post',
+      body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+      var errorMessage = document.querySelector('.error-message');
+      var sentMessage = document.querySelector('.sent-message');
+
+      if (data.trim() === 'success') {
+          errorMessage.style.display = 'none';
+          sentMessage.style.display = 'block';
+          document.getElementById('emailForm').reset();
+      } else {
+          errorMessage.style.display = 'block';
+          errorMessage.innerHTML = data;
+          sentMessage.style.display = 'none';
+      }
+  })
+  .catch(error => console.error('Error:', error));
 });
